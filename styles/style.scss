@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: transparent;
+}
+body {
+    background: #444;
+    font-family: "International Super Hero", "Segoe UI", 'Gill Sans', sans-serif;
+    #container {
+        padding: 10px;
+        #menu {
+            min-height: 40px;
+            background-color: rgb(143, 141, 141);
+            #menu-items {
+                max-width: 1500px;
+                width: 100%;
+                margin: auto;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                vertical-align: middle;
+                .error-message {
+                    color: red;
+                    margin: 5px 0;
+                }
+                input {
+                    border-radius: 13px;
+                    border-color: transparent;
+                    width: 25%;
+                    padding: 5px;
+                }
+            }
+        }
+        #heroes-container {
+            min-height: 90%;
+            width: 100%;
+            max-width: 1500px;
+            margin: 25px auto;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            .hero-card {
+                width: 300px;
+                height: 400px;
+                perspective: 1000px;
+                margin: 5px;
+                .card-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transition: 0.6s;
+                    transform-style: preserve-3d;
+                    .card-front, .card-back {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        backface-visibility: hidden;
+                        padding: 10px;
+                        background-color: cornflowerblue;
+                        border-radius: 15px;
+                    }
+                    .card-front {
+                        .hero-name {
+                            font-size: 2em;
+                            width: 100%;
+                            height: 10%;
+                            text-align: center;
+                        }
+                        .hero-image {
+                            width: 100%;
+                            height: 90%;
+                            background-size: contain;
+                            border: 5px solid black;
+                        }
+                    }
+                    .card-back {
+                        transform: rotateY(180deg);
+                        .hero-stats {
+                            display: flex;
+                            flex-direction: column;
+                            height: 100%;
+                            justify-content: space-evenly;
+                            .stat {
+                                font-size: 1.2em;
+                            }
+                            .info {
+                                font-size: 1.3em;
+                            }
+                        }
+                        .progress {
+                            height: 11px;
+                        }
+                    }
+                }
+                &:hover {
+                    .card-inner {
+                        transform: rotateY(180deg);
+                    }
+                }
+            }
+        }
+    }
+}
